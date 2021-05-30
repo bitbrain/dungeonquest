@@ -4,7 +4,7 @@ extends Node2D
 signal points_received(total_points)
 signal game_over
 
-export(float) var MOVEMENT_SPEED = 850.0
+export(float) var MOVEMENT_SPEED = 650.0
 
 var points = 0
 var type = Flask.FlaskType.MANA

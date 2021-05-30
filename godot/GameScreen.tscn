@@ -1,23 +1,38 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Walls and Doors/Floor.png" type="Texture" id=2]
 [ext_resource path="res://FlaskSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GameScreen.gd" type="Script" id=4]
 [ext_resource path="res://ui/PointsControl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/Walls and Doors/Wall_1.png" type="Texture" id=6]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2600, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 698.519, -359.967 )
+scale = Vector2( 2.08766, 1 )
+texture = ExtResource( 6 )
+
 [node name="Floor" type="Sprite" parent="."]
-position = Vector2( -3.25867, -3.74139 )
+position = Vector2( -2.41779, -64.2859 )
 scale = Vector2( 1.90439, 1 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, 70 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="GameObjects" type="YSort" parent="."]
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -3.25867, -3.74139 )
+position = Vector2( -2.41779, -64.2859 )
 
 [node name="Camera2D" type="Camera2D" parent="GameObjects/Player"]
 position = Vector2( 3.25867, 3.74139 )
@@ -29,7 +44,7 @@ update_rotation = false
 update_scale = false
 
 [node name="FlaskSpawner" parent="GameObjects/Player" instance=ExtResource( 3 )]
-position = Vector2( 1196.85, -7.41333 )
+position = Vector2( 1139.57, 66.1258 )
 SPAWN_TARGET_PATH = NodePath("../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
