@@ -117,12 +117,11 @@ __meta__ = {
 
 [node name="ManaSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 10 )
-frame = 3
 playing = true
 
 [node name="PoisonSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
-frame = 1
+frame = 6
 playing = true
 
 [connection signal="area_entered" from="FlaskPickupArea" to="." method="_on_FlaskPickupArea_area_entered"]
