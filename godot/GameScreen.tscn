@@ -36,6 +36,7 @@ position = Vector2( -2.41779, -64.2859 )
 
 [node name="Camera2D" type="Camera2D" parent="GameObjects/Player"]
 position = Vector2( 3.25867, 3.74139 )
+offset = Vector2( 200, -200 )
 current = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameObjects/Player"]

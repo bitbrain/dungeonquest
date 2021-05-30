@@ -1,12 +1,11 @@
 class_name Player
 extends Node2D
 
-signal points_received(total_points)
+signal flask_collected
 signal game_over
 
 export(float) var MOVEMENT_SPEED = 650.0
 
-var points = 0
 var type = Flask.FlaskType.MANA
 var game_over = false
 
@@ -17,16 +16,12 @@ func _process(delta:float) -> void:
 	if game_over:
 		return
 	self.position.x += MOVEMENT_SPEED * delta 
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		shapeshift()
 
 func _on_FlaskPickupArea_area_entered(area):
 	if area.get_parent() is Flask:
 		var flask = area.get_parent()
 		if self.type == flask.type:
-			self.points += 1
-			emit_signal("points_received", self.points)
+			emit_signal("flask_collected")
 		else:
 			game_over = true
 			emit_signal("game_over")	

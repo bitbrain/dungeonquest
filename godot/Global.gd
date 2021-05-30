@@ -1,10 +1,21 @@
 extends Node
 
+signal points_updated(total_points)
+
 var current_scene = null
+var points = 0
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	
+func add_points(points:int) -> void:
+	self.points += points
+	emit_signal("points_updated", self.points)
+	
+func reset_points() -> void:
+	self.points = 0
+	emit_signal("points_updated", self.points)
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
