@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/Walls and Doors/Floor.png" type="Texture" id=2]
+[ext_resource path="res://FlaskSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameScreen.gd" type="Script" id=4]
+[ext_resource path="res://ui/PointsControl.tscn" type="PackedScene" id=5]
+
+[node name="GameScreen" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( -3.25867, -3.74139 )
+scale = Vector2( 1.90439, 1 )
+texture = ExtResource( 2 )
+
+[node name="GameObjects" type="YSort" parent="."]
+
+[node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
+position = Vector2( -3.25867, -3.74139 )
+
+[node name="Camera2D" type="Camera2D" parent="GameObjects/Player"]
+position = Vector2( 3.25867, 3.74139 )
+current = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GameObjects/Player"]
+remote_path = NodePath("../../../Floor")
+update_rotation = false
+update_scale = false
+
+[node name="FlaskSpawner" parent="GameObjects/Player" instance=ExtResource( 3 )]
+position = Vector2( 1196.85, -7.41333 )
+SPAWN_TARGET_PATH = NodePath("../..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointsControl" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 60.0
+margin_top = 60.0
