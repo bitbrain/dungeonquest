@@ -33,7 +33,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Flaskrunner"
-run/main_scene="res://GameScreen.tscn"
+config/description="Collect as many flasks as possible!"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

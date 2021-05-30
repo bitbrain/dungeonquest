@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://ui/UIFont.tres" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 106
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_color = Color( 1, 0.858824, 0.670588, 1 )
+font_data = ExtResource( 2 )
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 228.0
+margin_top = 268.0
+margin_right = 1295.0
+margin_bottom = 595.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_right = 1067.0
+margin_bottom = 127.0
+custom_constants/margin_bottom = 20
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/MarginContainer"]
+margin_right = 1067.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.858824, 0.670588, 1 )
+text = "Flask Runner"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 131.0
+margin_right = 1067.0
+margin_bottom = 282.0
+custom_constants/margin_bottom = 90
+
+[node name="InstructionLabel" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/MarginContainer2"]
+margin_right = 1067.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.894118, 0.576471, 0.466667, 1 )
+text = "collect the flask with the right colour.
+Press any key to shapeshift!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PromptLabel" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 286.0
+margin_right = 1067.0
+margin_bottom = 327.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.917647, 0.811765, 1 )
+text = "Press any key to play!"
+align = 1

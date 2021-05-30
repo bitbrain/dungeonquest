@@ -1,11 +1,13 @@
 extends Node2D
 
-onready var points_label = $CanvasLayer/CenterContainer/VBoxContainer/PointsLabel
+onready var prompt_label = $CanvasLayer/CenterContainer/VBoxContainer/PromptLabel
 
+var time = 0
 var exited = false
 
-func _ready():
-	points_label.text = str(Global.points) + " points"
+func _process(delta):
+	time += delta * 7.0
+	prompt_label.modulate.a = sin(time)
 
 func _input(event):
 	if exited:
