@@ -36,6 +36,10 @@ config/name="Flaskrunner"
 run/main_scene="res://GameScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=1270
